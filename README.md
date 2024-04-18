@@ -11,6 +11,6 @@ Guess_master is built using HTML, CSS, JavaScript, and pre-defined modules such 
 2. CSS.
 3. JS.
 
-** Internal style and internal javascript have been used; hence, all code is contained in a single file, 1.html.
+** Internal style and internal javascript have been used; hence, all code is contained in a single file, index.html.
 
  
