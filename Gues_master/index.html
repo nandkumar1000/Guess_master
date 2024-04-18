@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="icon" href="https://th.bing.com/th?id=OIP.i_8qSipOOdMT8Uu6ANeZnwHaHa&w=150&h=150&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #2980b9, #2c3e50);
+            color: #fff;
+            background-image: url('https://images.pexels.com/photos/278918/pexels-photo-278918.jpeg?auto=compress&cs=tinysrgb&w=600');
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        nav ul li a.active {
+            background-color: #555;
+        }
+
+        .nand {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .nand h1 {
+            margin-bottom: 20px;
+        }
+        #outputsection{
+            color: #2c3e50;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        footer {
+            background-color: #555050;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .game-info {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="&" class="active">Home</a></li>
+            <li><a href="&">Play</a></li>
+            <li><a href="&">About</a></li>
+            <li><a href="&">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="nand">
+        <h1>Number Guessing Game</h1>
+        <p>Try to guess the number!</p>
+        <input type="number" id="userInput" placeholder="Enter a number">
+        <button onclick="guessNumber()">Guess</button>
+        <div id="result"></div>
+        <div id="outputSection"></div>
+    </div>
+
+    <footer>
+        <div class="game-info">
+            <p>This game challenges your ability to guess a number within a certain range. With each guess, you'll receive feedback until you guess the correct number. Enjoy and have fun!</p>
+        </div>
+        <p>Terms and Conditions</p>
+    </footer>
+
+    <script>
+        function guessNumber() {
+            const computerNumber = Math.floor(Math.random() * 1200) + 1;
+            const userInput = parseInt(document.getElementById("userInput").value);
+            const resultDiv = document.getElementById("result");
+            const outputSection = document.getElementById("outputSection"); 
+
+            if (userInput > computerNumber) {
+                resultDiv.textContent = "Your guess is too high. You are the winner!";
+            } else if (userInput < computerNumber) {
+                resultDiv.textContent = "Your guess is too low. Computer wins this game.";
+            } else {
+                resultDiv.textContent = "Both of them have the same number.";
+            }
+            outputSection.innerHTML = `<p>The computer's number was: ${computerNumber}</p>`;
+        }
+    </script>
+</body>
+</html>
